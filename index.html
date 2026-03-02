@@ -8,6 +8,7 @@
   v4.3.1  | 2026-03-01 | Nav 로고 gowid 브랜드 SVG 적용, Footer 설명 문구 추가
   v4.8.0  | 2026-03-02 | v4.8 카피 전면 재구성: 섹션순서 변경, 실명사례, 서사형 케이스, 문제공감 신설, Why Gowid 제거
   v4.9.0  | 2026-03-02 | 디자인 리뷰 반영: 섹션1 세로리스트, 섹션2 모바일 더보기, 섹션3 아이콘통일, 섹션4 안내문구이동, FAQ 1열
+  v5.2.0  | 2026-03-02 | 섹션1 불릿블럭, 섹션2 타이틀/사례소개/케이스4개 정확화, 20개사 리스트삭제, FAQ Q2/Q3/Q5/Q7 수정, 문의메일 변경
   ============================================================
 -->
 <!DOCTYPE html>
@@ -120,14 +121,8 @@ ul, ol { list-style: none; }
   align-items: center;
   justify-content: space-between;
 }
-.nav-logo {
-  display: flex;
-  align-items: center;
-}
-.nav-logo svg {
-  height: 24px;
-  width: auto;
-}
+.nav-logo { display: flex; align-items: center; }
+.nav-logo svg { height: 24px; width: auto; }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a {
   font-size: 14px;
@@ -156,11 +151,7 @@ ul, ol { list-style: none; }
   background: var(--bg);
   overflow: hidden;
 }
-.hero-inner {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
+.hero-inner { text-align: center; max-width: 800px; margin: 0 auto; }
 .hero-text h1 {
   font-size: 48px;
   font-weight: 800;
@@ -186,25 +177,21 @@ ul, ol { list-style: none; }
 }
 .hero-note::before {
   content: '';
-  width: 4px;
-  height: 4px;
+  width: 4px; height: 4px;
   background: var(--green);
   border-radius: 50%;
   flex-shrink: 0;
 }
 
-/* ===== Section: How It Works (엔진 제공 방식) — v4.9 세로 리스트 ===== */
+/* ===== Section: How It Works — v5.2 불릿 블럭 ===== */
 .how-it-works {
   padding: 100px 0;
   background: var(--bg-alt);
 }
-.how-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
+.how-header { text-align: center; margin-bottom: 40px; }
 .how-body {
   max-width: 720px;
-  margin: 0 auto 48px;
+  margin: 0 auto 40px;
   text-align: center;
   font-size: 18px;
   color: var(--text);
@@ -212,43 +199,31 @@ ul, ol { list-style: none; }
   word-break: keep-all;
   font-weight: 500;
 }
-.how-points {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.how-bullets {
   max-width: 720px;
   margin: 0 auto 48px;
-}
-.how-point {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 20px 24px;
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  transition: all 0.3s ease;
+  border-radius: var(--radius);
+  padding: 32px 36px;
 }
-.how-point:hover { border-color: var(--green); box-shadow: var(--shadow); }
-.how-point-num {
-  width: 32px;
-  height: 32px;
-  background: var(--green);
-  border-radius: 50%;
+.how-bullets li {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  margin-top: 1px;
-}
-.how-point p {
+  align-items: flex-start;
+  gap: 12px;
   font-size: 15px;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.8;
   word-break: keep-all;
+  padding: 8px 0;
+}
+.how-bullets li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 10px;
 }
 .how-cta { text-align: center; }
 
@@ -257,10 +232,7 @@ ul, ol { list-style: none; }
   padding: 100px 0;
   background: var(--bg);
 }
-.cases-header {
-  text-align: center;
-  margin-bottom: 12px;
-}
+.cases-header { text-align: center; margin-bottom: 12px; }
 .cases-badge {
   display: inline-flex;
   align-items: center;
@@ -272,9 +244,17 @@ ul, ol { list-style: none; }
   font-size: 15px;
   font-weight: 700;
   color: var(--green);
-  margin: 0 auto 48px;
+  margin: 0 auto 20px;
 }
 .cases-badge svg { width: 18px; height: 18px; fill: var(--green); }
+.cases-intro {
+  text-align: center;
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 48px;
+  word-break: keep-all;
+}
 .cases-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -297,24 +277,11 @@ ul, ol { list-style: none; }
   justify-content: space-between;
   margin-bottom: 8px;
 }
-.case-card-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--dark);
-}
-.case-card-type {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-tertiary);
-}
-.case-tags {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-}
+.case-card-title { font-size: 18px; font-weight: 700; color: var(--dark); }
+.case-card-type { font-size: 13px; font-weight: 600; color: var(--text-tertiary); }
+.case-tags { display: flex; gap: 8px; margin-bottom: 20px; }
 .case-tag {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 12px; font-weight: 600;
   color: var(--green);
   background: var(--green-bg);
   padding: 4px 10px;
@@ -328,8 +295,6 @@ ul, ol { list-style: none; }
 }
 .case-narrative p { margin-bottom: 14px; }
 .case-narrative p:last-child { margin-bottom: 0; }
-
-/* v4.9: Mobile "더 보기" for case narratives */
 .case-more-btn {
   display: none;
   background: none;
@@ -345,7 +310,7 @@ ul, ol { list-style: none; }
 }
 .case-more-btn:hover { border-color: var(--green); color: var(--green); }
 
-/* 20 companies grid */
+/* 20개사 텍스트 (v5.2: 리스트 없음) */
 .companies-section {
   max-width: 800px;
   margin: 0 auto 16px;
@@ -356,39 +321,17 @@ ul, ol { list-style: none; }
   color: var(--text-secondary);
   line-height: 1.7;
   word-break: keep-all;
-  margin-bottom: 20px;
-}
-.companies-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 16px;
   margin-bottom: 40px;
-}
-.companies-grid span {
-  font-size: 14px;
-  color: var(--text-tertiary);
-  font-weight: 500;
-  padding: 6px 14px;
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 6px;
 }
 .cases-cta { text-align: center; }
 
-/* ===== Section: Empathy (문제 공감) — v4.9 아이콘 통일 ===== */
+/* ===== Section: Empathy ===== */
 .empathy {
   padding: 100px 0;
   background: var(--bg-alt);
 }
-.empathy-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-.empathy-points {
-  max-width: 680px;
-  margin: 0 auto 40px;
-}
+.empathy-header { text-align: center; margin-bottom: 48px; }
+.empathy-points { max-width: 680px; margin: 0 auto 40px; }
 .empathy-point {
   display: flex;
   align-items: flex-start;
@@ -399,14 +342,11 @@ ul, ol { list-style: none; }
 .empathy-point:first-child { padding-top: 0; }
 .empathy-point:last-child { border-bottom: none; }
 .empathy-point-bullet {
-  width: 32px;
-  height: 32px;
+  width: 32px; height: 32px;
   background: var(--green-light);
   border: 2px solid var(--green);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -426,15 +366,12 @@ ul, ol { list-style: none; }
   word-break: keep-all;
 }
 
-/* ===== Section: Process (신청 절차) — v4.9 안내문구 위치 변경 ===== */
+/* ===== Section: Process ===== */
 .process {
   padding: 100px 0;
   background: var(--bg);
 }
-.process-header {
-  text-align: center;
-  margin-bottom: 16px;
-}
+.process-header { text-align: center; margin-bottom: 16px; }
 .process-sub {
   text-align: center;
   font-size: 16px;
@@ -453,47 +390,28 @@ ul, ol { list-style: none; }
   content: '';
   position: absolute;
   top: 36px;
-  left: 12.5%;
-  right: 12.5%;
+  left: 12.5%; right: 12.5%;
   height: 2px;
   background: var(--border);
 }
 .process-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; flex-direction: column; align-items: center;
   text-align: center;
-  position: relative;
-  z-index: 1;
+  position: relative; z-index: 1;
   padding: 0 12px;
 }
 .process-step-num {
-  width: 72px;
-  height: 72px;
+  width: 72px; height: 72px;
   border-radius: 50%;
   background: #fff;
   border: 2px solid var(--green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 800;
   color: var(--green);
   margin-bottom: 20px;
 }
-.process-step h4 {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 10px;
-}
-.process-step p {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 220px;
-  word-break: keep-all;
-}
+.process-step h4 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+.process-step p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; max-width: 220px; word-break: keep-all; }
 .process-sla {
   max-width: 640px;
   margin: 0 auto 24px;
@@ -503,12 +421,7 @@ ul, ol { list-style: none; }
   padding: 28px 32px;
   text-align: center;
 }
-.process-sla p {
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  word-break: keep-all;
-}
+.process-sla p { font-size: 15px; color: var(--text-secondary); line-height: 1.8; word-break: keep-all; }
 .process-sla strong { color: var(--dark); font-weight: 600; }
 .process-notice {
   max-width: 600px;
@@ -521,15 +434,12 @@ ul, ol { list-style: none; }
 }
 .process-cta { text-align: center; }
 
-/* ===== Section: FAQ — v4.9 1열 풀폭 아코디언 ===== */
+/* ===== Section: FAQ — 1열 풀폭 아코디언 ===== */
 .faq {
   padding: 100px 0;
   background: var(--bg-alt);
 }
-.faq-header {
-  text-align: center;
-  margin-bottom: 12px;
-}
+.faq-header { text-align: center; margin-bottom: 12px; }
 .faq-sub {
   text-align: center;
   font-size: 15px;
@@ -552,48 +462,27 @@ ul, ol { list-style: none; }
 }
 .faq-item.active { border-color: var(--green); }
 .faq-question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   padding: 20px 24px;
   cursor: pointer;
   user-select: none;
   gap: 12px;
 }
-.faq-question h4 {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--dark);
-  word-break: keep-all;
-  flex: 1;
-}
+.faq-question h4 { font-size: 15px; font-weight: 600; color: var(--dark); word-break: keep-all; flex: 1; }
 .faq-toggle {
-  width: 28px;
-  height: 28px;
+  width: 28px; height: 28px;
   border-radius: 50%;
   background: var(--bg-alt);
   border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   transition: all 0.3s;
 }
 .faq-item.active .faq-toggle { background: var(--green); border-color: var(--green); }
 .faq-toggle svg { width: 14px; height: 14px; stroke: var(--text-secondary); stroke-width: 2; fill: none; transition: all 0.3s; }
 .faq-item.active .faq-toggle svg { stroke: #fff; transform: rotate(180deg); }
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-.faq-answer-inner {
-  padding: 0 24px 20px;
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  word-break: keep-all;
-}
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-answer-inner { padding: 0 24px 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.8; word-break: keep-all; }
 
 /* ===== Section: Final CTA ===== */
 .final-cta {
@@ -601,27 +490,10 @@ ul, ol { list-style: none; }
   background: var(--bg-dark);
   text-align: center;
 }
-.final-cta h2 {
-  font-size: 34px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.4;
-  margin-bottom: 20px;
-  word-break: keep-all;
-}
-.final-cta .sub {
-  font-size: 15px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 40px;
-  line-height: 1.7;
-}
+.final-cta h2 { font-size: 34px; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 20px; word-break: keep-all; }
+.final-cta .sub { font-size: 15px; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.7; }
 .final-cta .btn-primary { font-size: 17px; padding: 18px 44px; }
-.final-note {
-  margin-top: 20px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.7;
-}
+.final-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; }
 
 /* ===== Footer ===== */
 .footer {
@@ -629,50 +501,15 @@ ul, ol { list-style: none; }
   background: #111;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-}
-.footer-brand {
-  margin-bottom: 12px;
-}
-.footer-brand svg {
-  height: 20px;
-  width: auto;
-}
-.footer-desc {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.8;
-  margin-bottom: 20px;
-  max-width: 500px;
-}
-.footer-divider {
-  border: none;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  margin: 24px 0;
-}
-.footer-info {
-  font-size: 12px;
-  color: rgba(255,255,255,0.35);
-  line-height: 1.8;
-}
+.footer-inner { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+.footer-brand { margin-bottom: 12px; }
+.footer-brand svg { height: 20px; width: auto; }
+.footer-desc { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.8; margin-bottom: 20px; max-width: 500px; }
+.footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 24px 0; }
+.footer-info { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.8; }
 .footer-links { display: flex; gap: 40px; }
-.footer-col h5 {
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 12px;
-}
-.footer-col a {
-  display: block;
-  font-size: 13px;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 8px;
-  transition: color 0.2s;
-}
+.footer-col h5 { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 8px; transition: color 0.2s; }
 .footer-col a:hover { color: rgba(255,255,255,0.7); }
 
 /* ===== Responsive ===== */
@@ -695,10 +532,10 @@ ul, ol { list-style: none; }
   .how-it-works, .cases, .empathy, .process, .faq, .final-cta { padding: 72px 0; }
   .section-title { font-size: 24px; }
   .how-body { font-size: 16px; }
+  .how-bullets { padding: 24px 28px; }
 
   .cases-grid { grid-template-columns: 1fr; }
 
-  /* v4.9: Mobile case "more" button */
   .case-narrative.collapsed p:nth-child(n+2) { display: none; }
   .case-more-btn { display: block; }
   .case-more-btn.expanded { display: none; }
@@ -773,7 +610,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 1: 엔진 제공 방식 — v4.9 세로 번호 리스트 ===== -->
+<!-- ===== Section 1: 엔진 제공 방식 — v5.2 불릿 블럭 ===== -->
 <section class="how-it-works" id="how-it-works">
   <div class="container">
     <div class="how-header fade-in">
@@ -786,24 +623,12 @@ ul, ol { list-style: none; }
       공급 대금은 비즈니스 모델과 현금순환주기에 맞춰서 분할로 납부하시면 됩니다.
     </p>
 
-    <div class="how-points">
-      <div class="how-point fade-in">
-        <div class="how-point-num">1</div>
-        <p>설비, 장비, 재고 등 대규모 매입 자금이 필요할 때</p>
-      </div>
-      <div class="how-point fade-in">
-        <div class="how-point-num">2</div>
-        <p>고객사는 현금흐름에 따라 4개월, 6개월, 12개월, 24개월 등으로 분할 납부</p>
-      </div>
-      <div class="how-point fade-in">
-        <div class="how-point-num">3</div>
-        <p>렌탈/할부판매 등으로 진행되기 때문에 의사결정이 빠르고, 즉시 실행이 가능하며, 지분 희석도 없습니다</p>
-      </div>
-      <div class="how-point fade-in">
-        <div class="how-point-num">4</div>
-        <p>미팅부터 자금 공급까지 4주 이내에 실행됩니다</p>
-      </div>
-    </div>
+    <ul class="how-bullets fade-in">
+      <li>설비, 장비, 재고 등 대규모 매입 자금이 필요할 때</li>
+      <li>고객사는 현금흐름에 따라 4개월, 6개월, 12개월, 24개월 등으로 분할 납부</li>
+      <li>렌탈/할부판매 등으로 진행되기 때문에 의사결정이 빠르고, 즉시 실행이 가능하며, 지분 희석도 없습니다</li>
+      <li>미팅부터 자금 공급까지 4주 이내에 실행됩니다</li>
+    </ul>
 
     <div class="how-cta fade-in">
       <a href="https://forms.gle/dWCJtxS8QdJTLx177" target="_blank" class="btn-primary">
@@ -814,20 +639,22 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 2: 성공 사례 — v4.9 모바일 "더 보기" ===== -->
+<!-- ===== Section 2: 성공 사례 — v5.2 케이스 정확화, 20개사 리스트 삭제 ===== -->
 <section class="cases" id="cases">
   <div class="container">
     <div class="cases-header fade-in">
       <div class="section-label">Case Study</div>
-      <h2 class="section-title">이미 함께 성장하고 있는 기업들</h2>
+      <h2 class="section-title">함께 성장하고 있는 기업들</h2>
     </div>
 
-    <div style="text-align: center; margin-bottom: 48px;" class="fade-in">
+    <div style="text-align: center; margin-bottom: 20px;" class="fade-in">
       <div class="cases-badge">
         <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
         누적 집행 규모 300억 원+
       </div>
     </div>
+
+    <p class="cases-intro fade-in">성장에 대한 고민이 있는 고객사와 함께 문제를 해결하고 있습니다.</p>
 
     <div class="cases-grid">
       <!-- Case 1: 그린다 -->
@@ -842,9 +669,9 @@ ul, ol { list-style: none; }
           <span class="case-tag">#공장증설</span>
         </div>
         <div class="case-narrative">
-          <p>자체 기술로 원료를 가공·판매하는 에너지 스타트업 그린다는 폭발적으로 늘어나는 수요에 맞춰 빠르게 공장을 증설해야 했습니다.</p>
-          <p>IR을 진행 중이었고 원하는 투자자도 많았지만, 대표님의 고민은 명확했습니다. "빠르게 증설하고 싶은데, 투자는 적게 받고 싶다."</p>
-          <p>고위드가 증설 자금을 제공해 드려, 공장 확장은 빠르게 진행하면서도 투자 유치 규모는 최소화할 수 있었습니다. 수요 증가에 맞춰 생산 능력을 확대하면서도 지분 희석을 줄이고, IR에 쓸 시간을 제품 개발과 영업에 집중하고 계십니다.</p>
+          <p>튀김 부스러기를 수거하여 항공유 등 고부가가치 제품을 생산·판매하는 에너지 스타트업 그린다는, 폭발적으로 늘어나는 수요에 맞춰 빠르게 공장을 증설해야 하는 상황이었습니다.</p>
+          <p>이를위한 IR을 진행 중이었고, 투자를 희망하는 기관들도 많았지만, 대표님의 고민은 명확했습니다. "빠르게 증설하고 싶은데, 투자는 적게 받고 싶다."</p>
+          <p>엔진서비스를 통해 증설 자금을 지원해 드려, 공장 확장은 빠르게 진행하면서도 투자 유치 규모는 최소화할 수 있었습니다. 수요 증가에 맞춰 생산 능력을 확대하면서도 지분 희석을 줄이고, IR에 쓸 시간을 제품 개발과 영업에 집중하고 계십니다.</p>
         </div>
         <button class="case-more-btn">더 보기</button>
       </div>
@@ -861,9 +688,9 @@ ul, ol { list-style: none; }
           <span class="case-tag">#사업전환</span>
         </div>
         <div class="case-narrative">
-          <p>모빌리티 구독 서비스를 운영하는 더스윙은 기존 사업의 성장성이 정체되면서, 바이크 사업으로의 전환을 추진하고 있었습니다.</p>
-          <p>새로운 사업을 빠르게 키우려면 대규모 바이크 매입이 필요했지만, 신규 사업이라 빠른 실행이 곧 경쟁력이었습니다.</p>
-          <p>1,000대 이상의 바이크 매입 자금을 지원해 드려, 비즈니스 전환에 성공하며 지속 성장 가능한 구조를 확보하셨습니다. 추가 투자 유치 없이 사업 규모를 확대하고 계십니다.</p>
+          <p>공유 모빌리티 서비스를 운영하는 더스윙은, 기존 사업의 성장에 대한 고민이 있어 신규 사업의 빠른 확장을 통한 지속 성장을 희망한 상황이었습니다.</p>
+          <p>신규 사업인 바이크 구독 사업으로의 전환과 확장을 추진했지만, 대규모 바이크 매입에 필요한 자금이 고민이었습니다.</p>
+          <p>엔진서비스를 통해 1,000대 이상의 바이크 매입 자금을 지원해 드리고, 비즈니스의 지속성장이 가능한 구조를 만들어 드릴 수 있었습니다.</p>
         </div>
         <button class="case-more-btn">더 보기</button>
       </div>
@@ -880,9 +707,9 @@ ul, ol { list-style: none; }
           <span class="case-tag">#지점확대</span>
         </div>
         <div class="case-narrative">
-          <p>공유 미용실 브랜드 '아데르'를 운영하는 아카이브코퍼레이션은 투자 없이 자체 자금으로 성장하는 것을 선호하셨습니다.</p>
-          <p>하지만 지점을 하나 늘리는 데 인테리어·비품 비용이 상당했고, 자기 자금만으로는 좋은 입지가 나와도 속도를 못 맞추는 상황이었습니다.</p>
-          <p>지점 확장에 필요한 제반 비용을 지원해 드려, 압구정, 강남 등 핵심 입지에 빠르게 출점하셨습니다. 현재 매달 1~2곳씩 함께 확장하고 있습니다.</p>
+          <p>공유 미용실 브랜드 '아데르'를 비롯한 미용사업자를 위한 인프라를 제공하는 아카이브코퍼레이션은 투자 없이 자체 자금으로 성장하는 것을 선호하셨습니다.</p>
+          <p>하지만 지점 하나를 늘리는 데 인테리어·비품 비용이 상당했고, 자체 자금만으로는 좋은 입지가 나와도 출점 속도를 맞추기 어려웠습니다. 성장 의지는 충분한데, 자금 순환 때문에 확장이 느려지는 상황이었습니다.</p>
+          <p>엔진서비스를 통해 지점 확장에 필요한 제반 비용을 지원해 드리고, 압구정, 강남 등 핵심 입지에 빠른 출점을 도와드렸습니다. 매달 1~2곳의 확장을 함께 하고 있습니다.</p>
         </div>
         <button class="case-more-btn">더 보기</button>
       </div>
@@ -899,39 +726,17 @@ ul, ol { list-style: none; }
           <span class="case-tag">#재고매입</span>
         </div>
         <div class="case-narrative">
-          <p>대형 유통채널에 정기 납품하는 소비재 브랜드 차일디는 계절성에 맞는 대규모 주문을 수주하면서도, 제조·매입 대금을 미리 확보해야 했습니다.</p>
-          <p>납품 후 대금 회수까지 수개월이 걸리는 현금흐름 불일치가 시즌마다 반복되는 상황이었습니다.</p>
-          <p>재고 매입 자금을 지원해 드려 현금흐름 불일치를 해소하고, 시즌마다 반복되던 자금 부담 없이 안정적으로 성장하고 계십니다.</p>
+          <p>키즈패션 온라인 브랜드 셀렉트샵 및 브랜드를 운영하는 차일디는 대형 유통채널에 시즌에 맞춰 대규모 상품을 납품하고 계십니다.</p>
+          <p>납품을 위한 상품 제조·매입 대금을 미리 확보해야 하는데, 납품 후 대금 회수까지 수개월이 걸리는 현금 불일치가 시즌마다 반복되는 고민이었습니다. 매출은 성장하고 있지만, 성장할수록 자금이 먼저 묶이는 구조였습니다.</p>
+          <p>엔진서비스를 통해 상품 제조 대금을 지원해 드리며 현금 불일치를 해소하고, 자금에 대한 부담을 낮추며 지속적으로 성장하고 계십니다.</p>
         </div>
         <button class="case-more-btn">더 보기</button>
       </div>
     </div>
 
-    <!-- 20개사 리스트 -->
+    <!-- 20개사 텍스트 (v5.2: 기업명 리스트 없음) -->
     <div class="companies-section fade-in">
       <p>위 4개 기업 외에도, 제조·모빌리티·뷰티·소비재·F&B·헬스케어·IT 등<br>다양한 분야의 성장기업 20개사의 문제를 함께 해결해 드리고 있습니다.</p>
-      <div class="companies-grid">
-        <span>더스윙</span>
-        <span>피에로컴퍼니</span>
-        <span>바리코퍼레이션</span>
-        <span>미스터아빠</span>
-        <span>핏크루</span>
-        <span>더휴식</span>
-        <span>쏘타콜렉션</span>
-        <span>그린다</span>
-        <span>브라운백</span>
-        <span>알고케어</span>
-        <span>아카이브코퍼레이션</span>
-        <span>차일디</span>
-        <span>핏펫</span>
-        <span>더화이트커뮤니케이션</span>
-        <span>콥틱</span>
-        <span>랩도쿠</span>
-        <span>엑스와이지</span>
-        <span>오티디코퍼레이션</span>
-        <span>티오더</span>
-        <span>의식주컴퍼니</span>
-      </div>
     </div>
 
     <div class="cases-cta fade-in">
@@ -943,7 +748,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 3: 문제 공감 — v4.9 아이콘 통일 (chevron-right) ===== -->
+<!-- ===== Section 3: 문제 공감 ===== -->
 <section class="empathy" id="empathy">
   <div class="container">
     <div class="empathy-header fade-in">
@@ -978,7 +783,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 4: 신청 절차 — v4.9 안내문구를 SLA 아래로 이동 ===== -->
+<!-- ===== Section 4: 신청 절차 ===== -->
 <section class="process" id="process">
   <div class="container">
     <div class="process-header fade-in">
@@ -1035,7 +840,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 5: FAQ — v4.9 1열 풀폭 아코디언 ===== -->
+<!-- ===== Section 5: FAQ — v5.2 Q2/Q3/Q5/Q7 수정 ===== -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="faq-header fade-in">
@@ -1058,7 +863,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q2 -->
+      <!-- Q2 — v5.2: 매출기준 변경 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>어떤 기업이 신청할 수 있나요?</h4>
@@ -1067,13 +872,14 @@ ul, ol { list-style: none; }
         <div class="faq-answer">
           <div class="faq-answer-inner">
             아래 조건에 해당하는 기업이라면 검토 가능합니다:<br>
-            · 연 매출 10억 원 이상 (또는 VC 투자 유치 이력)<br>
-            · 설비·자산 매입이나 3개월 이상의 재고 매입 계획이 있는 기업<br>
+            · 커머스 기업: 최근 3개월 기준 월매출 5억 원 이상<br>
+            · 비커머스 기업: 최근 3개월 기준 월매출 3억 원 이상<br>
+            · 영업이익이 발생하고 있거나, 영업적자인 경우 런웨이 12개월 이상<br>
             · 구체적인 대상 여부는 미팅을 통해 확인드립니다
           </div>
         </div>
       </div>
-      <!-- Q3 -->
+      <!-- Q3 — v5.2: 의료장비 제외 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>어떤 품목이 가능한가요?</h4>
@@ -1081,7 +887,7 @@ ul, ol { list-style: none; }
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            오토바이, 키오스크, 가구/가전, 의료장비, 제조설비, 인테리어 비품, 원자재·부품, 노트북 등 다양한 품목을 취급합니다. 리스트에 없는 품목도 미팅 시 검토 가능합니다.
+            오토바이, 키오스크, 가구/가전, 제조설비, 인테리어 비품, 원자재·부품, 노트북 등 다양한 품목을 취급합니다. 리스트에 없는 품목도 미팅 시 검토 가능합니다.
           </div>
         </div>
       </div>
@@ -1097,7 +903,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q5 -->
+      <!-- Q5 — v5.2: 담보 문구 수정 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>담보가 필요한가요?</h4>
@@ -1105,7 +911,7 @@ ul, ol { list-style: none; }
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            매입하시는 자산 자체가 기본 안전장치 역할을 합니다. 기업 상황에 따라 추가 담보를 협의할 수 있으며, 구체적인 조건은 검토 및 미팅을 진행하며 안내드리겠습니다.
+            별도의 담보를 요청드리지 않습니다. 다만, 기업의 상황에 따라 추가 담보를 협의할 수 있으며, 구체적인 조건은 검토 및 미팅을 진행하며 안내드리겠습니다.
           </div>
         </div>
       </div>
@@ -1121,7 +927,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q7 -->
+      <!-- Q7 — v5.2: 긴급일정 삭제 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>미팅부터 실행까지 얼마나 걸리나요?</h4>
@@ -1129,7 +935,7 @@ ul, ol { list-style: none; }
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            기업 상황과 매입 품목에 따라 다르지만, 첫 미팅 후 통상 4주~6주 내 실행이 가능합니다. 긴급한 경우 일정을 앞당길 수 있으니 미팅 시 말씀해주세요.
+            기업 상황과 매입 품목에 따라 다르지만, 첫 미팅 후 통상 4주~6주 내 실행이 가능합니다.
           </div>
         </div>
       </div>
@@ -1149,7 +955,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 6: Final CTA ===== -->
+<!-- ===== Section 6: Final CTA — v5.2 이메일 변경 ===== -->
 <section class="final-cta" id="contact">
   <div class="container">
     <h2 class="fade-in">성장에 집중하세요.<br>자금에 대한 문제는 저희가 함께 풀겠습니다.</h2>
@@ -1162,7 +968,7 @@ ul, ol { list-style: none; }
     </div>
     <p class="final-note fade-in">
       신청 후 2영업일 내 전문인력이 연락드립니다.<br>
-      문의: engine@gowid.com
+      문의: d.jang@gowid.com
     </p>
   </div>
 </section>
@@ -1199,7 +1005,7 @@ ul, ol { list-style: none; }
         <div class="footer-col">
           <h5>서비스</h5>
           <a href="https://gowid.com" target="_blank">고위드 홈페이지</a>
-          <a href="mailto:engine@gowid.com">이메일 문의</a>
+          <a href="mailto:d.jang@gowid.com">이메일 문의</a>
         </div>
         <div class="footer-col">
           <h5>고객지원</h5>
@@ -1270,7 +1076,7 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 
-// ===== v4.9: Mobile Case "More" Button =====
+// ===== Mobile Case "More" Button =====
 function initCaseMoreButtons() {
   const isMobile = window.innerWidth <= 768;
   document.querySelectorAll('.case-card').forEach(card => {
