@@ -7,6 +7,7 @@
   v4.3.0  | 2026-03-01 | 헤드라인 "더 커질 수 있습니다" → "더 성장할 수 있습니다"
   v4.3.1  | 2026-03-01 | Nav 로고 gowid 브랜드 SVG 적용, Footer 설명 문구 추가
   v4.8.0  | 2026-03-02 | v4.8 카피 전면 재구성: 섹션순서 변경, 실명사례, 서사형 케이스, 문제공감 신설, Why Gowid 제거
+  v4.9.0  | 2026-03-02 | 디자인 리뷰 반영: 섹션1 세로리스트, 섹션2 모바일 더보기, 섹션3 아이콘통일, 섹션4 안내문구이동, FAQ 1열
   ============================================================
 -->
 <!DOCTYPE html>
@@ -192,7 +193,7 @@ ul, ol { list-style: none; }
   flex-shrink: 0;
 }
 
-/* ===== Section: How It Works (엔진 제공 방식) ===== */
+/* ===== Section: How It Works (엔진 제공 방식) — v4.9 세로 리스트 ===== */
 .how-it-works {
   padding: 100px 0;
   background: var(--bg-alt);
@@ -212,34 +213,37 @@ ul, ol { list-style: none; }
   font-weight: 500;
 }
 .how-points {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  max-width: 880px;
+  max-width: 720px;
   margin: 0 auto 48px;
 }
 .how-point {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  padding: 20px 24px;
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
+  border-radius: var(--radius-sm);
   transition: all 0.3s ease;
 }
 .how-point:hover { border-color: var(--green); box-shadow: var(--shadow); }
-.how-point-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--green-bg);
-  border-radius: 10px;
+.how-point-num {
+  width: 32px;
+  height: 32px;
+  background: var(--green);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 1px;
 }
-.how-point-icon svg { width: 20px; height: 20px; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .how-point p {
   font-size: 15px;
   color: var(--text-secondary);
@@ -325,6 +329,22 @@ ul, ol { list-style: none; }
 .case-narrative p { margin-bottom: 14px; }
 .case-narrative p:last-child { margin-bottom: 0; }
 
+/* v4.9: Mobile "더 보기" for case narratives */
+.case-more-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.2s;
+}
+.case-more-btn:hover { border-color: var(--green); color: var(--green); }
+
 /* 20 companies grid */
 .companies-section {
   max-width: 800px;
@@ -356,7 +376,7 @@ ul, ol { list-style: none; }
 }
 .cases-cta { text-align: center; }
 
-/* ===== Section: Empathy (문제 공감) ===== */
+/* ===== Section: Empathy (문제 공감) — v4.9 아이콘 통일 ===== */
 .empathy {
   padding: 100px 0;
   background: var(--bg-alt);
@@ -406,7 +426,7 @@ ul, ol { list-style: none; }
   word-break: keep-all;
 }
 
-/* ===== Section: Process (신청 절차) ===== */
+/* ===== Section: Process (신청 절차) — v4.9 안내문구 위치 변경 ===== */
 .process {
   padding: 100px 0;
   background: var(--bg);
@@ -419,21 +439,8 @@ ul, ol { list-style: none; }
   text-align: center;
   font-size: 16px;
   color: var(--text-secondary);
-  margin-bottom: 32px;
+  margin-bottom: 48px;
   word-break: keep-all;
-}
-.process-notice {
-  max-width: 600px;
-  margin: 0 auto 48px;
-  text-align: center;
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  word-break: keep-all;
-  background: var(--bg-alt);
-  border-radius: var(--radius-sm);
-  padding: 20px 24px;
-  border: 1px solid var(--border);
 }
 .process-steps {
   display: grid;
@@ -489,7 +496,7 @@ ul, ol { list-style: none; }
 }
 .process-sla {
   max-width: 640px;
-  margin: 0 auto 40px;
+  margin: 0 auto 24px;
   background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -503,9 +510,18 @@ ul, ol { list-style: none; }
   word-break: keep-all;
 }
 .process-sla strong { color: var(--dark); font-weight: 600; }
+.process-notice {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-tertiary);
+  line-height: 1.7;
+  word-break: keep-all;
+}
 .process-cta { text-align: center; }
 
-/* ===== Section: FAQ ===== */
+/* ===== Section: FAQ — v4.9 1열 풀폭 아코디언 ===== */
 .faq {
   padding: 100px 0;
   background: var(--bg-alt);
@@ -521,10 +537,10 @@ ul, ol { list-style: none; }
   margin-bottom: 48px;
 }
 .faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 720px;
   margin: 0 auto 48px;
 }
 .faq-item {
@@ -577,19 +593,6 @@ ul, ol { list-style: none; }
   color: var(--text-secondary);
   line-height: 1.8;
   word-break: keep-all;
-}
-.faq-notice {
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 14px;
-  color: var(--text-tertiary);
-  line-height: 1.7;
-  word-break: keep-all;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 20px 24px;
 }
 
 /* ===== Section: Final CTA ===== */
@@ -693,9 +696,12 @@ ul, ol { list-style: none; }
   .section-title { font-size: 24px; }
   .how-body { font-size: 16px; }
 
-  .how-points { grid-template-columns: 1fr; }
   .cases-grid { grid-template-columns: 1fr; }
-  .faq-grid { grid-template-columns: 1fr; }
+
+  /* v4.9: Mobile case "more" button */
+  .case-narrative.collapsed p:nth-child(n+2) { display: none; }
+  .case-more-btn { display: block; }
+  .case-more-btn.expanded { display: none; }
 
   .process-steps { grid-template-columns: 1fr 1fr; gap: 32px 0; }
   .process-steps::before { display: none; }
@@ -767,7 +773,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 1: 엔진 제공 방식 ===== -->
+<!-- ===== Section 1: 엔진 제공 방식 — v4.9 세로 번호 리스트 ===== -->
 <section class="how-it-works" id="how-it-works">
   <div class="container">
     <div class="how-header fade-in">
@@ -782,27 +788,19 @@ ul, ol { list-style: none; }
 
     <div class="how-points">
       <div class="how-point fade-in">
-        <div class="how-point-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14"/></svg>
-        </div>
+        <div class="how-point-num">1</div>
         <p>설비, 장비, 재고 등 대규모 매입 자금이 필요할 때</p>
       </div>
       <div class="how-point fade-in">
-        <div class="how-point-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
+        <div class="how-point-num">2</div>
         <p>고객사는 현금흐름에 따라 4개월, 6개월, 12개월, 24개월 등으로 분할 납부</p>
       </div>
       <div class="how-point fade-in">
-        <div class="how-point-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+        <div class="how-point-num">3</div>
         <p>렌탈/할부판매 등으로 진행되기 때문에 의사결정이 빠르고, 즉시 실행이 가능하며, 지분 희석도 없습니다</p>
       </div>
       <div class="how-point fade-in">
-        <div class="how-point-icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
+        <div class="how-point-num">4</div>
         <p>미팅부터 자금 공급까지 4주 이내에 실행됩니다</p>
       </div>
     </div>
@@ -816,7 +814,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 2: 성공 사례 ===== -->
+<!-- ===== Section 2: 성공 사례 — v4.9 모바일 "더 보기" ===== -->
 <section class="cases" id="cases">
   <div class="container">
     <div class="cases-header fade-in">
@@ -848,6 +846,7 @@ ul, ol { list-style: none; }
           <p>IR을 진행 중이었고 원하는 투자자도 많았지만, 대표님의 고민은 명확했습니다. "빠르게 증설하고 싶은데, 투자는 적게 받고 싶다."</p>
           <p>고위드가 증설 자금을 제공해 드려, 공장 확장은 빠르게 진행하면서도 투자 유치 규모는 최소화할 수 있었습니다. 수요 증가에 맞춰 생산 능력을 확대하면서도 지분 희석을 줄이고, IR에 쓸 시간을 제품 개발과 영업에 집중하고 계십니다.</p>
         </div>
+        <button class="case-more-btn">더 보기</button>
       </div>
 
       <!-- Case 2: 더스윙 -->
@@ -866,6 +865,7 @@ ul, ol { list-style: none; }
           <p>새로운 사업을 빠르게 키우려면 대규모 바이크 매입이 필요했지만, 신규 사업이라 빠른 실행이 곧 경쟁력이었습니다.</p>
           <p>1,000대 이상의 바이크 매입 자금을 지원해 드려, 비즈니스 전환에 성공하며 지속 성장 가능한 구조를 확보하셨습니다. 추가 투자 유치 없이 사업 규모를 확대하고 계십니다.</p>
         </div>
+        <button class="case-more-btn">더 보기</button>
       </div>
 
       <!-- Case 3: 아카이브코퍼레이션 -->
@@ -884,6 +884,7 @@ ul, ol { list-style: none; }
           <p>하지만 지점을 하나 늘리는 데 인테리어·비품 비용이 상당했고, 자기 자금만으로는 좋은 입지가 나와도 속도를 못 맞추는 상황이었습니다.</p>
           <p>지점 확장에 필요한 제반 비용을 지원해 드려, 압구정, 강남 등 핵심 입지에 빠르게 출점하셨습니다. 현재 매달 1~2곳씩 함께 확장하고 있습니다.</p>
         </div>
+        <button class="case-more-btn">더 보기</button>
       </div>
 
       <!-- Case 4: 차일디 -->
@@ -902,6 +903,7 @@ ul, ol { list-style: none; }
           <p>납품 후 대금 회수까지 수개월이 걸리는 현금흐름 불일치가 시즌마다 반복되는 상황이었습니다.</p>
           <p>재고 매입 자금을 지원해 드려 현금흐름 불일치를 해소하고, 시즌마다 반복되던 자금 부담 없이 안정적으로 성장하고 계십니다.</p>
         </div>
+        <button class="case-more-btn">더 보기</button>
       </div>
     </div>
 
@@ -941,7 +943,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 3: 문제 공감 ===== -->
+<!-- ===== Section 3: 문제 공감 — v4.9 아이콘 통일 (chevron-right) ===== -->
 <section class="empathy" id="empathy">
   <div class="container">
     <div class="empathy-header fade-in">
@@ -952,19 +954,19 @@ ul, ol { list-style: none; }
     <div class="empathy-points fade-in">
       <div class="empathy-point">
         <div class="empathy-point-bullet">
-          <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
         </div>
         <p>더 빠른 성장을 위해 추가로 자금이 필요한데,</p>
       </div>
       <div class="empathy-point">
         <div class="empathy-point-bullet">
-          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
         </div>
         <p>현실적으로 담보가 없어 대출은 막혀 있고,</p>
       </div>
       <div class="empathy-point">
         <div class="empathy-point-bullet">
-          <svg viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
         </div>
         <p>투자를 받으려니 들어가는 시간과 노력이 엄청나고, 지분도 아까우시죠?</p>
       </div>
@@ -976,7 +978,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 4: 신청 절차 ===== -->
+<!-- ===== Section 4: 신청 절차 — v4.9 안내문구를 SLA 아래로 이동 ===== -->
 <section class="process" id="process">
   <div class="container">
     <div class="process-header fade-in">
@@ -985,12 +987,6 @@ ul, ol { list-style: none; }
     </div>
 
     <p class="process-sub fade-in">문제를 함께 고민하고, 구조를 짜서, 더 좋은 솔루션을 제공하겠습니다.</p>
-
-    <div class="process-notice fade-in">
-      엔진서비스는 고위드 법인카드 고객만을 대상으로 운영됩니다.<br>
-      지금 고위드 서비스(카드 등)를 사용하지 않으셔도 미팅은 가능하며,<br>
-      진행 시 카드서비스 및 도입절차 또한 함께 안내드립니다.
-    </div>
 
     <div class="process-steps fade-in">
       <div class="process-step">
@@ -1024,6 +1020,12 @@ ul, ol { list-style: none; }
       </p>
     </div>
 
+    <div class="process-notice fade-in">
+      엔진서비스는 고위드 법인카드 고객만을 대상으로 운영됩니다.<br>
+      지금 고위드 서비스(카드 등)를 사용하지 않으셔도 미팅은 가능하며,<br>
+      진행 시 카드서비스 및 도입절차 또한 함께 안내드립니다.
+    </div>
+
     <div class="process-cta fade-in">
       <a href="https://forms.gle/dWCJtxS8QdJTLx177" target="_blank" class="btn-primary" style="margin: 0 auto; display: inline-flex;">
         미팅 신청하기
@@ -1033,7 +1035,7 @@ ul, ol { list-style: none; }
   </div>
 </section>
 
-<!-- ===== Section 5: FAQ ===== -->
+<!-- ===== Section 5: FAQ — v4.9 1열 풀폭 아코디언 ===== -->
 <section class="faq" id="faq">
   <div class="container">
     <div class="faq-header fade-in">
@@ -1143,12 +1145,6 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="faq-notice fade-in">
-      엔진서비스는 고위드 법인카드 고객만을 대상으로 운영됩니다.<br>
-      지금 고위드 서비스(카드 등)를 사용하지 않으셔도 미팅은 가능하며,<br>
-      진행 시 카드서비스 및 도입절차 또한 함께 안내드립니다.
     </div>
   </div>
 </section>
@@ -1273,6 +1269,39 @@ document.querySelectorAll('.faq-question').forEach(q => {
     }
   });
 });
+
+// ===== v4.9: Mobile Case "More" Button =====
+function initCaseMoreButtons() {
+  const isMobile = window.innerWidth <= 768;
+  document.querySelectorAll('.case-card').forEach(card => {
+    const narrative = card.querySelector('.case-narrative');
+    const btn = card.querySelector('.case-more-btn');
+    if (!narrative || !btn) return;
+
+    if (isMobile) {
+      narrative.classList.add('collapsed');
+      btn.textContent = '더 보기';
+      btn.classList.remove('expanded');
+      btn.style.display = 'block';
+    } else {
+      narrative.classList.remove('collapsed');
+      btn.style.display = 'none';
+    }
+  });
+}
+
+document.querySelectorAll('.case-more-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.case-card');
+    const narrative = card.querySelector('.case-narrative');
+    narrative.classList.remove('collapsed');
+    btn.classList.add('expanded');
+    btn.style.display = 'none';
+  });
+});
+
+initCaseMoreButtons();
+window.addEventListener('resize', initCaseMoreButtons);
 
 // ===== Scroll Animations =====
 const observer = new IntersectionObserver((entries) => {
