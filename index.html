@@ -9,6 +9,7 @@
   v4.8.0  | 2026-03-02 | v4.8 카피 전면 재구성: 섹션순서 변경, 실명사례, 서사형 케이스, 문제공감 신설, Why Gowid 제거
   v4.9.0  | 2026-03-02 | 디자인 리뷰 반영: 섹션1 세로리스트, 섹션2 모바일 더보기, 섹션3 아이콘통일, 섹션4 안내문구이동, FAQ 1열
   v5.2.0  | 2026-03-02 | 섹션1 불릿블럭, 섹션2 타이틀/사례소개/케이스4개 정확화, 20개사 리스트삭제, FAQ Q2/Q3/Q5/Q7 수정, 문의메일 변경
+  v5.2.2  | 2026-03-02 | 케이스 카드에 기업 로고 추가, 그린다 카피 정확화(음식물폐기물), 20개사 문구 수정
   ============================================================
 -->
 <!DOCTYPE html>
@@ -271,6 +272,16 @@ ul, ol { list-style: none; }
   flex-direction: column;
 }
 .case-card:hover { border-color: var(--green); box-shadow: var(--shadow); }
+.case-card-logo {
+  height: 28px;
+  margin-bottom: 16px;
+}
+.case-card-logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
 .case-card-header {
   display: flex;
   align-items: center;
@@ -659,6 +670,7 @@ ul, ol { list-style: none; }
     <div class="cases-grid">
       <!-- Case 1: 그린다 -->
       <div class="case-card fade-in">
+        <div class="case-card-logo"><img src="logos/greenda.png" alt="그린다 로고"></div>
         <div class="case-card-header">
           <span class="case-card-title">그린다</span>
           <span class="case-card-type">공장 증설</span>
@@ -669,7 +681,7 @@ ul, ol { list-style: none; }
           <span class="case-tag">#공장증설</span>
         </div>
         <div class="case-narrative">
-          <p>튀김 부스러기를 수거하여 항공유 등 고부가가치 제품을 생산·판매하는 에너지 스타트업 그린다는, 폭발적으로 늘어나는 수요에 맞춰 빠르게 공장을 증설해야 하는 상황이었습니다.</p>
+          <p>음식물폐기물을 수거하여 친환경 바이오 항공유 등 고부가가치 제품을 생산·판매하는 에너지 스타트업 그린다는, 폭발적으로 늘어나는 수요에 맞춰 빠르게 공장을 증설해야 하는 상황이었습니다.</p>
           <p>이를위한 IR을 진행 중이었고, 투자를 희망하는 기관들도 많았지만, 대표님의 고민은 명확했습니다. "빠르게 증설하고 싶은데, 투자는 적게 받고 싶다."</p>
           <p>엔진서비스를 통해 증설 자금을 지원해 드려, 공장 확장은 빠르게 진행하면서도 투자 유치 규모는 최소화할 수 있었습니다. 수요 증가에 맞춰 생산 능력을 확대하면서도 지분 희석을 줄이고, IR에 쓸 시간을 제품 개발과 영업에 집중하고 계십니다.</p>
         </div>
@@ -678,6 +690,7 @@ ul, ol { list-style: none; }
 
       <!-- Case 2: 더스윙 -->
       <div class="case-card fade-in">
+        <div class="case-card-logo"><img src="logos/swing.png" alt="더스윙 로고"></div>
         <div class="case-card-header">
           <span class="case-card-title">더스윙</span>
           <span class="case-card-type">자산 매입</span>
@@ -697,6 +710,7 @@ ul, ol { list-style: none; }
 
       <!-- Case 3: 아카이브코퍼레이션 -->
       <div class="case-card fade-in">
+        <div class="case-card-logo"><img src="logos/arkive.png" alt="아카이브코퍼레이션 로고"></div>
         <div class="case-card-header">
           <span class="case-card-title">아카이브코퍼레이션</span>
           <span class="case-card-type">지점 확장</span>
@@ -716,6 +730,7 @@ ul, ol { list-style: none; }
 
       <!-- Case 4: 차일디 -->
       <div class="case-card fade-in">
+        <div class="case-card-logo"><img src="logos/childy.png" alt="차일디 로고"></div>
         <div class="case-card-header">
           <span class="case-card-title">차일디</span>
           <span class="case-card-type">재고 매입</span>
@@ -736,7 +751,7 @@ ul, ol { list-style: none; }
 
     <!-- 20개사 텍스트 (v5.2: 기업명 리스트 없음) -->
     <div class="companies-section fade-in">
-      <p>위 4개 기업 외에도, 제조·모빌리티·뷰티·소비재·F&B·헬스케어·IT 등<br>다양한 분야의 성장기업 20개사의 문제를 함께 해결해 드리고 있습니다.</p>
+      <p>위 기업들 외에도, 제조·모빌리티·뷰티·소비재·F&B·헬스케어·IT 등<br>다양한 분야의 성장기업 20개사의 문제를 함께 해결해 드리고 있습니다.</p>
     </div>
 
     <div class="cases-cta fade-in">
