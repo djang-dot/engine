@@ -10,6 +10,7 @@
   v4.9.0  | 2026-03-02 | 디자인 리뷰 반영: 섹션1 세로리스트, 섹션2 모바일 더보기, 섹션3 아이콘통일, 섹션4 안내문구이동, FAQ 1열
   v5.2.0  | 2026-03-02 | 섹션1 불릿블럭, 섹션2 타이틀/사례소개/케이스4개 정확화, 20개사 리스트삭제, FAQ Q2/Q3/Q5/Q7 수정, 문의메일 변경
   v5.2.2  | 2026-03-02 | 케이스 카드에 기업 로고 추가, 그린다 카피 정확화(음식물폐기물), 20개사 문구 수정
+  v5.3.0  | 2026-03-02 | 히어로 서브카피 A안(고객관점), 섹션1 서비스구조 플로우 추가, 케이스 숫자보강(그린다 10억+, 차일디 수십억)
   ============================================================
 -->
 <!DOCTYPE html>
@@ -226,6 +227,54 @@ ul, ol { list-style: none; }
   flex-shrink: 0;
   margin-top: 10px;
 }
+/* ===== Service Flow (Section 1) ===== */
+.service-flow {
+  max-width: 800px;
+  margin: 0 auto 48px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: flex-start;
+  gap: 0;
+}
+.service-flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 8px;
+}
+.service-flow-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 800;
+  margin-bottom: 16px;
+}
+.service-flow-step h4 {
+  font-size: 16px; font-weight: 700; color: var(--dark);
+  margin-bottom: 8px;
+  word-break: keep-all;
+}
+.service-flow-step p {
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.6;
+  word-break: keep-all;
+  max-width: 200px;
+}
+.service-flow-arrow {
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+}
+.service-flow-arrow svg {
+  width: 32px; height: 32px;
+  stroke: var(--green);
+  fill: none;
+  stroke-width: 2;
+}
+
 .how-cta { text-align: center; }
 
 /* ===== Section: Cases ===== */
@@ -545,6 +594,10 @@ ul, ol { list-style: none; }
   .how-body { font-size: 16px; }
   .how-bullets { padding: 24px 28px; }
 
+  .service-flow { grid-template-columns: 1fr; gap: 0; }
+  .service-flow-arrow { transform: rotate(90deg); justify-content: center; padding: 4px 0; }
+  .service-flow-step p { max-width: 280px; }
+
   .cases-grid { grid-template-columns: 1fr; }
 
   .case-narrative.collapsed p:nth-child(n+2) { display: none; }
@@ -605,9 +658,10 @@ ul, ol { list-style: none; }
       <div class="hero-text fade-in">
         <h1>엔진서비스란?</h1>
         <p class="hero-sub">
-          Capex 투자(자산 매입, 증설)와 Working Capital에 필요한 유동성을 공급해 드립니다.<br>
-          엔진서비스를 잘 활용하시면 성장은 빨라지고, 런웨이는 늘어나고, 지분은 지켜집니다.<br>
-          이미 20개 기업이 엔진서비스를 통해, 규모를 키우면서 지속적인 성장을 하고 계십니다.
+          설비, 장비, 재고 — 성장에 필요한 자산을 먼저 확보하시고,<br>
+          비용은 4~24개월에 걸쳐 나눠 내시면 됩니다.<br>
+          성장은 빨라지고, 런웨이는 늘어나고, 지분은 지켜집니다.<br>
+          이미 20개 기업이 엔진서비스를 통해 성장하고 있습니다.
         </p>
         <div class="hero-cta-wrap">
           <a href="https://forms.gle/dWCJtxS8QdJTLx177" target="_blank" class="btn-primary">
@@ -640,6 +694,31 @@ ul, ol { list-style: none; }
       <li>렌탈/할부판매 등으로 진행되기 때문에 의사결정이 빠르고, 즉시 실행이 가능하며, 지분 희석도 없습니다</li>
       <li>미팅부터 자금 공급까지 4주 이내에 실행됩니다</li>
     </ul>
+
+    <!-- 서비스 구조 플로우 — v5.3 -->
+    <div class="service-flow fade-in">
+      <div class="service-flow-step">
+        <div class="service-flow-num">1</div>
+        <h4>니즈 공유</h4>
+        <p>필요한 자산과 규모를<br>말씀해 주세요</p>
+      </div>
+      <div class="service-flow-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="service-flow-step">
+        <div class="service-flow-num">2</div>
+        <h4>대금 선정산</h4>
+        <p>공급사에 자산 대금이<br>먼저 정산됩니다</p>
+      </div>
+      <div class="service-flow-arrow">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="service-flow-step">
+        <div class="service-flow-num">3</div>
+        <h4>분할 납부</h4>
+        <p>고객사는 매월<br>나눠 납부하시면 됩니다</p>
+      </div>
+    </div>
 
     <div class="how-cta fade-in">
       <a href="https://forms.gle/dWCJtxS8QdJTLx177" target="_blank" class="btn-primary">
@@ -683,7 +762,7 @@ ul, ol { list-style: none; }
         <div class="case-narrative">
           <p>음식물폐기물을 수거하여 친환경 바이오 항공유 등 고부가가치 제품을 생산·판매하는 에너지 스타트업 그린다는, 폭발적으로 늘어나는 수요에 맞춰 빠르게 공장을 증설해야 하는 상황이었습니다.</p>
           <p>이를위한 IR을 진행 중이었고, 투자를 희망하는 기관들도 많았지만, 대표님의 고민은 명확했습니다. "빠르게 증설하고 싶은데, 투자는 적게 받고 싶다."</p>
-          <p>엔진서비스를 통해 증설 자금을 지원해 드려, 공장 확장은 빠르게 진행하면서도 투자 유치 규모는 최소화할 수 있었습니다. 수요 증가에 맞춰 생산 능력을 확대하면서도 지분 희석을 줄이고, IR에 쓸 시간을 제품 개발과 영업에 집중하고 계십니다.</p>
+          <p>엔진서비스를 통해 10억 원 이상의 증설 자금을 지원해 드려, 공장 확장은 빠르게 진행하면서도 투자 유치 규모는 최소화할 수 있었습니다. 수요 증가에 맞춰 생산 능력을 확대하면서도 지분 희석을 줄이고, IR에 쓸 시간을 제품 개발과 영업에 집중하고 계십니다.</p>
         </div>
         <button class="case-more-btn">더 보기</button>
       </div>
@@ -743,7 +822,7 @@ ul, ol { list-style: none; }
         <div class="case-narrative">
           <p>키즈패션 온라인 브랜드 셀렉트샵 및 브랜드를 운영하는 차일디는 대형 유통채널에 시즌에 맞춰 대규모 상품을 납품하고 계십니다.</p>
           <p>납품을 위한 상품 제조·매입 대금을 미리 확보해야 하는데, 납품 후 대금 회수까지 수개월이 걸리는 현금 불일치가 시즌마다 반복되는 고민이었습니다. 매출은 성장하고 있지만, 성장할수록 자금이 먼저 묶이는 구조였습니다.</p>
-          <p>엔진서비스를 통해 상품 제조 대금을 지원해 드리며 현금 불일치를 해소하고, 자금에 대한 부담을 낮추며 지속적으로 성장하고 계십니다.</p>
+          <p>엔진서비스를 통해 수십억 원 규모의 상품 제조 대금을 지원해 드리며 현금 불일치를 해소하고, 자금에 대한 부담을 낮추며 지속적으로 성장하고 계십니다.</p>
         </div>
         <button class="case-more-btn">더 보기</button>
       </div>
