@@ -14,6 +14,7 @@
   v5.4.0  | 2026-03-02 | 섹션1 서비스플로우 메커니즘 중심 수정(자산확보/대금정산/분할납부), 사례소개 문구 수정
   v5.5.0  | 2026-03-02 | 섹션1 불릿 "즉시 실행"→"반복 실행", 누적집행규모 300억→380억
   v5.5.2  | 2026-03-03 | CTA 링크를 신규 Google Form URL로 전체 교체 (6곳)
+  v5.8.0  | 2026-03-03 | 히어로 질문형훅, 섹션1 이중구조, FAQ 10개 확장(Q2 거래구조SVG, Q3 CF효과SVG, Q1 수수료구체화), 뱃지 450억, CTA링크변경
   ============================================================
 -->
 <!DOCTYPE html>
@@ -546,6 +547,7 @@ ul, ol { list-style: none; }
 .faq-item.active .faq-toggle svg { stroke: #fff; transform: rotate(180deg); }
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
 .faq-answer-inner { padding: 0 24px 20px; font-size: 14px; color: var(--text-secondary); line-height: 1.8; word-break: keep-all; }
+.faq-answer-inner img { max-width: 100%; height: auto; margin-bottom: 16px; display: block; border-radius: var(--radius-sm); }
 
 /* ===== Section: Final CTA ===== */
 .final-cta {
@@ -646,7 +648,7 @@ ul, ol { list-style: none; }
       <a href="#how-it-works">제공 방식</a>
       <a href="#cases">성공 사례</a>
       <a href="#faq">FAQ</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtPXQ_dk_iOpqMGE5pR1zkeMQdFPsBH4b61nMsiruGG8HtqQ/formResponse" target="_blank" class="nav-cta">미팅 신청하기</a>
+      <a href="https://forms.gle/swHLiKG2PE5is8qA9" target="_blank" class="nav-cta">미팅 신청하기</a>
     </div>
     <button class="nav-mobile-btn" id="mobileMenuBtn" aria-label="메뉴">
       <span></span><span></span><span></span>
@@ -659,15 +661,13 @@ ul, ol { list-style: none; }
   <div class="container">
     <div class="hero-inner">
       <div class="hero-text fade-in">
-        <h1>엔진서비스란?</h1>
+        <h1>수요는 빠르게 증가하는데,<br>자금이 부족해서 공급을 맞추지 못하시나요?</h1>
         <p class="hero-sub">
-          설비, 장비, 재고 — 성장에 필요한 자산을 먼저 확보하시고,<br>
-          비용은 4~24개월에 걸쳐 나눠 내시면 됩니다.<br>
-          성장은 빨라지고, 런웨이는 늘어나고, 지분은 지켜집니다.<br>
-          이미 20개 기업이 엔진서비스를 통해 성장하고 있습니다.
+          고위드는 파트너사와 렌탈/할부판매를 통해<br>
+          Capex투자, Working Capital에 필요한 유동성을 공급해 드립니다
         </p>
         <div class="hero-cta-wrap">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtPXQ_dk_iOpqMGE5pR1zkeMQdFPsBH4b61nMsiruGG8HtqQ/formResponse" target="_blank" class="btn-primary">
+          <a href="https://forms.gle/swHLiKG2PE5is8qA9" target="_blank" class="btn-primary">
             미팅 신청하기
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -681,7 +681,21 @@ ul, ol { list-style: none; }
 <!-- ===== Section 1: 엔진 제공 방식 — v5.2 불릿 블럭 ===== -->
 <section class="how-it-works" id="how-it-works">
   <div class="container">
+    <!-- Block 1: 엔진 서비스란? -->
     <div class="how-header fade-in">
+      <div class="section-label">Engine Service</div>
+      <h2 class="section-title">엔진 서비스란?</h2>
+    </div>
+
+    <p class="how-body fade-in">
+      설비, 장비, 재고 — 성장에 필요한 자산을 먼저 확보하시고,<br>
+      비용은 4~24개월에 걸쳐 나눠 내시면 됩니다.<br>
+      성장은 빨라지고, 런웨이는 늘어나고, 지분은 지켜집니다.<br>
+      이미 20개 기업이 엔진서비스를 통해 성장하고 있습니다.
+    </p>
+
+    <!-- Block 2: 엔진 제공 방식 -->
+    <div class="how-header fade-in" style="margin-top: 72px;">
       <div class="section-label">How It Works</div>
       <h2 class="section-title">엔진 제공 방식</h2>
     </div>
@@ -693,6 +707,7 @@ ul, ol { list-style: none; }
 
     <ul class="how-bullets fade-in">
       <li>설비, 장비, 재고 등 대규모 매입 자금이 필요할 때</li>
+      <li>공급처에 고위드가 파트너사를 통해 대금을 바로 지급하고, 자산을 확보해 드립니다.</li>
       <li>고객사는 현금흐름에 따라 4개월, 6개월, 12개월, 24개월 등으로 분할 납부</li>
       <li>렌탈/할부판매 등으로 진행되기 때문에 의사결정이 빠르고, 반복 실행이 가능하며, 지분 희석도 없습니다</li>
       <li>미팅부터 자금 공급까지 4주 이내에 실행됩니다</li>
@@ -710,8 +725,8 @@ ul, ol { list-style: none; }
       </div>
       <div class="service-flow-step">
         <div class="service-flow-num">2</div>
-        <h4>대금 정산</h4>
-        <p>공급사 대금이<br>정산됩니다</p>
+        <h4>대금 지급</h4>
+        <p>공급사에 대금이<br>지급됩니다</p>
       </div>
       <div class="service-flow-arrow">
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -724,7 +739,7 @@ ul, ol { list-style: none; }
     </div>
 
     <div class="how-cta fade-in">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtPXQ_dk_iOpqMGE5pR1zkeMQdFPsBH4b61nMsiruGG8HtqQ/formResponse" target="_blank" class="btn-primary">
+      <a href="https://forms.gle/swHLiKG2PE5is8qA9" target="_blank" class="btn-primary">
         우리 회사의 상황을 알려주세요
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -743,7 +758,7 @@ ul, ol { list-style: none; }
     <div style="text-align: center; margin-bottom: 20px;" class="fade-in">
       <div class="cases-badge">
         <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-        누적 집행 규모 380억 원+
+        누적 집행 규모 450억 원+
       </div>
     </div>
 
@@ -837,7 +852,7 @@ ul, ol { list-style: none; }
     </div>
 
     <div class="cases-cta fade-in">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtPXQ_dk_iOpqMGE5pR1zkeMQdFPsBH4b61nMsiruGG8HtqQ/formResponse" target="_blank" class="btn-primary">
+      <a href="https://forms.gle/swHLiKG2PE5is8qA9" target="_blank" class="btn-primary">
         미팅 신청하기
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -909,7 +924,7 @@ ul, ol { list-style: none; }
       <div class="process-step">
         <div class="process-step-num">04</div>
         <h4>계약 & 실행</h4>
-        <p>계약 체결 후, 공급사에 대금 정산, 자산이 인도됩니다<br><span style="color:var(--text-tertiary); font-size:13px;">(실행까지 통상 4~8주)</span></p>
+        <p>계약 체결 후, 공급사에 대금 정산, 자산이 인도됩니다</p>
       </div>
     </div>
 
@@ -929,7 +944,7 @@ ul, ol { list-style: none; }
     </div>
 
     <div class="process-cta fade-in">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtPXQ_dk_iOpqMGE5pR1zkeMQdFPsBH4b61nMsiruGG8HtqQ/formResponse" target="_blank" class="btn-primary" style="margin: 0 auto; display: inline-flex;">
+      <a href="https://forms.gle/swHLiKG2PE5is8qA9" target="_blank" class="btn-primary" style="margin: 0 auto; display: inline-flex;">
         미팅 신청하기
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -947,7 +962,7 @@ ul, ol { list-style: none; }
     <p class="faq-sub fade-in">더 궁금한 점이 있으시면 미팅에서 자세히 안내드리겠습니다.</p>
 
     <div class="faq-grid fade-in">
-      <!-- Q1 -->
+      <!-- Q1 — v5.8: 수수료 구체화 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>비용(수수료)이 얼마인가요?</h4>
@@ -955,12 +970,48 @@ ul, ol { list-style: none; }
         </div>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            기업 상황, 매입 품목, 기간에 따라 조건이 달라집니다. 검토 및 미팅을 진행하며 기업별 맞춤 조건을 안내드리겠습니다.<br><br>
+            현재 고객들이 가장 많이 사용하시는 상품인 6개월, 12개월 기준으로, <strong>6개월 상품의 수수료는 4.5%, 12개월 상품의 수수료는 7.5%</strong> 입니다.<br><br>
+            다만, 기업 상황, 매입 품목, 기간에 따라 조건이 달라집니다. 검토 및 미팅을 진행하며 기업별 맞춤 조건을 안내드리겠습니다.<br><br>
             참고로, 엔진은 은행 대출과 다른 구조입니다. 기존 대출 한도에 영향을 주지 않으며, 빠르게 진행된다는 점에서 별도의 가치를 제공합니다.
           </div>
         </div>
       </div>
-      <!-- Q2 — v5.2: 매출기준 변경 -->
+      <!-- Q2 — v5.8: 거래 구조 (SVG) -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h4>거래 구조가 어떻게 되나요?</h4>
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <img src="Structure_Engine_v1.svg" alt="엔진서비스 거래 구조">
+            엔진서비스는 고위드 및 렌탈사가 고객사와 공급사 사이에서 거래를 중개하는 구조입니다. (그림은 렌탈서비스 기준)<br><br>
+            ① 고객사가 고위드에 니즈를 공유합니다<br>
+            ② 고객사와 고위드(렌탈사)가 렌탈/할부판매계약을 체결합니다<br>
+            ③ 고위드(렌탈사)가 공급사와 공급계약을 체결합니다<br>
+            ④ 공급사가 고객사에게 상품을 배송합니다<br>
+            ⑤ 고위드(렌탈사)가 공급사에 공급가를 정산합니다<br>
+            ⑥ 고객사가 매월 렌탈료를 납부합니다<br><br>
+            고객사는 자산을 먼저 확보하고, 비용은 나눠서 납부하는 구조이기 때문에 기존 대출 한도에 영향을 주지 않으며, 지분 희석도 발생하지 않습니다.
+          </div>
+        </div>
+      </div>
+      <!-- Q3 — v5.8: 현금흐름 효과 (SVG) -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h4>현금흐름(CF)에는 어떤 효과가 있나요?</h4>
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <img src="CFeffect_Engine_v1.svg" alt="엔진서비스 현금흐름 효과">
+            대규모 자산을 일시에 매입하면 현금이 한꺼번에 빠져나가 현금흐름이 급격히 악화됩니다.<br><br>
+            엔진서비스를 적용하면 매입 대금이 월별 비용으로 분산되어 현금 유출이 평탄화되고, 현금흐름이 안정됩니다.<br><br>
+            성장에 필요한 투자는 그대로 진행하면서도 런웨이를 보존하여 안정적인 재무 구조를 유지할 수 있습니다.
+          </div>
+        </div>
+      </div>
+      <!-- Q4 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>어떤 기업이 신청할 수 있나요?</h4>
@@ -976,7 +1027,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q3 — v5.2: 의료장비 제외 -->
+      <!-- Q5 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>어떤 품목이 가능한가요?</h4>
@@ -988,7 +1039,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q4 -->
+      <!-- Q6 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>최소/최대 금액은 얼마인가요?</h4>
@@ -1000,7 +1051,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q5 — v5.2: 담보 문구 수정 -->
+      <!-- Q7 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>담보가 필요한가요?</h4>
@@ -1012,7 +1063,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q6 -->
+      <!-- Q8 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>고위드 법인카드가 없어도 미팅할 수 있나요?</h4>
@@ -1024,7 +1075,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q7 — v5.2: 긴급일정 삭제 -->
+      <!-- Q9 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>미팅부터 실행까지 얼마나 걸리나요?</h4>
@@ -1036,7 +1087,7 @@ ul, ol { list-style: none; }
           </div>
         </div>
       </div>
-      <!-- Q8 -->
+      <!-- Q10 -->
       <div class="faq-item">
         <div class="faq-question">
           <h4>투자를 받은 기업도 신청 가능한가요?</h4>
@@ -1058,7 +1109,7 @@ ul, ol { list-style: none; }
     <h2 class="fade-in">성장에 집중하세요.<br>자금에 대한 문제는 저희가 함께 풀겠습니다.</h2>
     <p class="sub fade-in">미팅 후 진행 여부는 자유롭게 결정하시면 됩니다.</p>
     <div class="fade-in">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtPXQ_dk_iOpqMGE5pR1zkeMQdFPsBH4b61nMsiruGG8HtqQ/formResponse" target="_blank" class="btn-primary">
+      <a href="https://forms.gle/swHLiKG2PE5is8qA9" target="_blank" class="btn-primary">
         미팅 신청하기
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
