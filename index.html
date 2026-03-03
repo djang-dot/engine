@@ -276,6 +276,61 @@ ul, ol { list-style: none; }
   margin-top: 8px;
 }
 
+/* Bullet card group — 3개 카드 분리 */
+.how-bullet-cards {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.how-bullet-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 36px;
+}
+.how-bullet-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+.how-bullet-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.how-bullet-card ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  word-break: keep-all;
+  padding: 8px 0;
+}
+.how-bullet-card ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+.how-bullet-card ul li strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+.how-bullet-card .how-sub-bullets li::before {
+  background: transparent;
+  border: 1.5px solid var(--green);
+  width: 5px; height: 5px;
+  margin-top: 8px;
+}
+
 /* CF Visual in Section 1 */
 .how-cf-visual {
   max-width: 720px;
@@ -686,6 +741,7 @@ ul, ol { list-style: none; }
   .how-body { font-size: 16px; }
   .how-body-prose { font-size: 15px; }
   .how-bullets { padding: 24px 28px; }
+  .how-bullet-card { padding: 20px 24px; }
   .how-cf-visual { padding: 20px 16px; }
 
   .service-flow { grid-template-columns: 1fr; gap: 0; max-width: 100%; }
@@ -773,7 +829,7 @@ ul, ol { list-style: none; }
     <!-- Block 1: 왜 엔진 서비스인가요? -->
     <div class="how-header fade-in">
       <div class="section-label">Engine Service</div>
-      <h2 class="section-title">왜 엔진 서비스인가요?</h2>
+      <h2 class="section-title">엔진 서비스는 무엇인가요?</h2>
     </div>
 
     <div class="how-body-prose fade-in">
@@ -783,10 +839,10 @@ ul, ol { list-style: none; }
       <p>엔진 서비스는 대표님이 현금 흐름의 제약 없이 가장 강력한 엔진을 장착하여,<br>기계의 생산 능력을 극대화할 수 있도록 중~장기 자금을 공급합니다.</p>
     </div>
 
-    <!-- Block 2: 엔진 서비스는 무엇인가요? -->
+    <!-- Block 2: 엔진 서비스는 이렇게 제공됩니다. -->
     <div class="how-header fade-in" style="margin-top: 72px;">
       <div class="section-label">What We Offer</div>
-      <h2 class="section-title">엔진 서비스는 무엇인가요?</h2>
+      <h2 class="section-title">엔진 서비스는 이렇게 제공됩니다.</h2>
     </div>
 
     <div class="how-body-prose fade-in">
@@ -794,47 +850,65 @@ ul, ol { list-style: none; }
       <p>이미 20개 이상의 혁신 기업이 지분 희석이나 대출 한도 걱정 없이<br>엔진 서비스를 통해 물리적 성장의 한계를 돌파하고 있습니다.<br>안정적인 성장을 위해 아래와 같은 베이스캠프를 갖춘 기업에 우선적으로 엔진서비스를 제공합니다.</p>
     </div>
 
-    <ul class="how-bullets fade-in">
-      <li>
-        <div>
-          <strong>제공 대상:</strong> 성장을 위한 설비, 장비 등 실제 산출물을 낼 수 있는 고정자산(Capex) 자금이 필요하신 기업
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong>신청 요건:</strong> 안정적인 성장을 위해 아래 조건 중 하나 이상을 충족하는 기업을 대상
-          <ul class="how-sub-bullets">
-            <li>[안정성] 런웨이(Runway) 12개월 이상 확보</li>
-            <li>[시장성] 최근 3개월 월평균 매출액 5억 원 이상 (커머스) / 3억 원 이상 (Non-커머스)</li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong>제공 규모:</strong> 단일 건 최대 약 20억 원 집행 / 한 기업당 누적 약 100억 원까지 지원한 사례 보유
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong>분할 납부기간:</strong> 4개월부터 최대 24개월까지, 비즈니스의 주기에 맞춘 중~장기 자금 공급
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong>이용 수수료:</strong> 기간에 따라 4.5% ~ 7.5% 수준 (대출이 아니므로, 은행 대출 한도에 영향을 주지 않는 별도 구조)
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong>실행 방식:</strong> 렌탈 및 할부판매 구조를 활용하여 담보 설정 없이 빠른 의사결정과 반복 실행이 가능
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong>소요 기간:</strong> 미팅부터 자금공급까지 4주 이내에 실행, 반복 실행의 경우 2주내 실행
-        </div>
-      </li>
-    </ul>
+    <div class="how-bullet-cards fade-in">
+      <!-- 카드 1: 이런 기업에 제공합니다 -->
+      <div class="how-bullet-card">
+        <div class="how-bullet-card-title">이런 기업에 제공합니다</div>
+        <ul>
+          <li>
+            <div>
+              <strong>제공 대상:</strong> 성장을 위한 설비, 장비 등 실제 산출물을 낼 수 있는 고정자산(Capex) 자금이 필요하신 기업
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>신청 요건:</strong> 안정적인 성장을 위해 아래 조건 중 하나 이상을 충족하는 기업을 대상
+              <ul class="how-sub-bullets">
+                <li>[안정성] 런웨이(Runway) 12개월 이상 확보</li>
+                <li>[시장성] 최근 3개월 월평균 매출액 5억 원 이상 (커머스) / 3억 원 이상 (Non-커머스)</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- 카드 2: 서비스 제공 조건 -->
+      <div class="how-bullet-card">
+        <div class="how-bullet-card-title">서비스 제공 조건</div>
+        <ul>
+          <li>
+            <div>
+              <strong>제공 규모:</strong> 단일 건 최대 약 20억 원 집행 / 한 기업당 누적 약 100억 원까지 지원한 사례 보유
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>분할 납부기간:</strong> 4개월부터 최대 24개월까지, 비즈니스의 주기에 맞춘 중~장기 자금 공급
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>이용 수수료:</strong> 기간에 따라 4.5% ~ 7.5% 수준 (대출이 아니므로, 은행 대출 한도에 영향을 주지 않는 별도 구조)
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- 카드 3: 이렇게 실행됩니다 -->
+      <div class="how-bullet-card">
+        <div class="how-bullet-card-title">이렇게 실행됩니다</div>
+        <ul>
+          <li>
+            <div>
+              <strong>실행 방식:</strong> 렌탈 및 할부판매 구조를 활용하여 담보 설정 없이 빠른 의사결정과 반복 실행이 가능
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>소요 기간:</strong> 미팅부터 자금공급까지 4주 이내에 실행, 반복 실행의 경우 2주내 실행
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <!-- CF 효과 시각자료 — v5.9 신규 -->
     <div class="how-cf-visual fade-in">
